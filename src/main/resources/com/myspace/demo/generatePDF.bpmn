@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_NC_vEHr7Ee2h-dILiaaUFQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_TemplateDataItem" structureRef="com.myspace.demo.createPDFData"/>
+  <bpmn2:itemDefinition id="_DocumentItem" structureRef="org.jbpm.document.Document"/>
+  <bpmn2:itemDefinition id="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateDataInputXItem" structureRef="com.myspace.demo.createPDFData"/>
+  <bpmn2:itemDefinition id="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFDocumentOutputXItem" structureRef="org.jbpm.document.Document"/>
+  <bpmn2:process id="demo.generatePDF" drools:packageName="com.myspace.demo" drools:version="1.0" drools:adHoc="false" name="generatePDF" isExecutable="true" processType="Public">
+    <bpmn2:property id="TemplateData" itemSubjectRef="_TemplateDataItem" name="TemplateData">
+      <bpmn2:extensionElements>
+        <drools:metaData name="customTags">
+          <drools:metaValue><![CDATA[input]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:property>
+    <bpmn2:property id="Document" itemSubjectRef="_DocumentItem" name="Document"/>
+    <bpmn2:sequenceFlow id="_AD952FD0-E0A4-4921-93C3-9CB03AFAA777" sourceRef="_8FD7BF6F-6EE7-4860-A032-2B01AB0132D0" targetRef="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD">
+      <bpmn2:extensionElements>
+        <drools:metaData name="isAutoConnection.target">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_08C4ECAF-7D2B-4735-95E0-3FC51CF6631F" sourceRef="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD" targetRef="_BC1A1120-F6A3-4521-AB7B-A59EA1805EBA"/>
+    <bpmn2:startEvent id="_8FD7BF6F-6EE7-4860-A032-2B01AB0132D0">
+      <bpmn2:outgoing>_AD952FD0-E0A4-4921-93C3-9CB03AFAA777</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD" drools:taskName="PdfWIH" name="PdfWIH">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[PdfWIH]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_AD952FD0-E0A4-4921-93C3-9CB03AFAA777</bpmn2:incoming>
+      <bpmn2:outgoing>_08C4ECAF-7D2B-4735-95E0-3FC51CF6631F</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_NC_vEXr7Ee2h-dILiaaUFQ">
+        <bpmn2:dataInput id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputX" drools:dtype="String" itemSubjectRef="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputXItem" name="PDFName"/>
+        <bpmn2:dataInput id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateDataInputX" drools:dtype="com.myspace.demo.createPDFData" itemSubjectRef="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateDataInputXItem" name="TemplateData"/>
+        <bpmn2:dataInput id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputX" drools:dtype="String" itemSubjectRef="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputXItem" name="TemplateXHTML"/>
+        <bpmn2:dataInput id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:dataOutput id="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFDocumentOutputX" drools:dtype="org.jbpm.document.Document" itemSubjectRef="__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFDocumentOutputXItem" name="PDFDocument"/>
+        <bpmn2:inputSet id="_NC_vEnr7Ee2h-dILiaaUFQ">
+          <bpmn2:dataInputRefs>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateDataInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_NC_vE3r7Ee2h-dILiaaUFQ">
+          <bpmn2:dataOutputRefs>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFDocumentOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_NC_vFHr7Ee2h-dILiaaUFQ">
+        <bpmn2:targetRef>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_NC_vFXr7Ee2h-dILiaaUFQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_NC_vFnr7Ee2h-dILiaaUFQ"><![CDATA[file]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_NC_vF3r7Ee2h-dILiaaUFQ">_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_NC_vGHr7Ee2h-dILiaaUFQ">
+        <bpmn2:sourceRef>TemplateData</bpmn2:sourceRef>
+        <bpmn2:targetRef>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateDataInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_NC_vGXr7Ee2h-dILiaaUFQ">
+        <bpmn2:targetRef>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_NC_vGnr7Ee2h-dILiaaUFQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_NC_vG3r7Ee2h-dILiaaUFQ"><![CDATA[<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> <head> 	 	<meta http-equiv="content-type" content="text/html" charset="utf-8"> 	 	<title>Welcome pdf</title> 	 </head> 	 <body> 	 	 	<div id="content1">         <table id="demo" class="table table-bordered">           <thead>             <tr>               <th></th>               <th></th>               <th>Poznamka</th>             </tr>           </thead>           <tbody>             <tr>               <td>Jmeno</td>               <td>${TemplateData.firstName}</td>               <td></td>             </tr>             <tr>               <td>Prijmeni</td>               <td>${TemplateData.lastName}</td>               <td></td>             </tr>             <tr>               <td>Telefon</td>               <td>${TemplateData.phoneNumber}</td>               <td>Mobilni</td>             </tr>           </tbody>         </table>       <br><br> </body>   <style type="text/css"> 	 	table {   border: 1px solid #ccc;   border-collapse: collapse;   margin: 0;   padding: 0;   width: 600px;   table-layout: fixed; }  table caption {   font-size: 1.5em;   margin: .5em 0 .75em; }  table tr {   background-color: #f8f8f8;   padding: .35em;   border-bottom: 1px solid lightgray; }  table th, table td {   padding: .625em;   text-align: center; }  table th {   font-size: .85em;   letter-spacing: .1em;   text-transform: uppercase; }  thead tr {     background: #d7d7d7 !important; }  tr:nth-child(odd) {     background: white; }  @media screen and (max-width: 600px) {   table {     border: 0;   }    table caption {     font-size: 1.3em;   }      table thead {     border: none;     clip: rect(0 0 0 0);     height: 1px;     margin: -1px;     overflow: hidden;     padding: 0;     position: absolute;     width: 1px;   }      table tr {     border-bottom: 3px solid #ddd;     display: block;     margin-bottom: .625em;   }      table td {     border-bottom: 1px solid #ddd;     display: block;     font-size: .8em;     text-align: right;   }      table td::before {     /*     * aria-label has no advantage, it won't be read inside a table     content: attr(aria-label);     */     content: attr(data-label);     float: left;     font-weight: bold;     text-transform: uppercase;   }      table td:last-child {     border-bottom: 0;   } } /* general styling */ body {   font-family: "Open Sans", sans-serif;   line-height: 1.25; }  </style> </html>]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_NC_vHHr7Ee2h-dILiaaUFQ">_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TemplateXHTMLInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_NC_vHXr7Ee2h-dILiaaUFQ">
+        <bpmn2:targetRef>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_NC_vHnr7Ee2h-dILiaaUFQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_NC_vH3r7Ee2h-dILiaaUFQ"><![CDATA[PdfWIH]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_NC_vIHr7Ee2h-dILiaaUFQ">_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_NC_vIXr7Ee2h-dILiaaUFQ">
+        <bpmn2:sourceRef>_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_PDFDocumentOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Document</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="_BC1A1120-F6A3-4521-AB7B-A59EA1805EBA">
+      <bpmn2:incoming>_08C4ECAF-7D2B-4735-95E0-3FC51CF6631F</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_NC_vInr7Ee2h-dILiaaUFQ">
+    <bpmndi:BPMNPlane id="_NC_vI3r7Ee2h-dILiaaUFQ" bpmnElement="demo.generatePDF">
+      <bpmndi:BPMNShape id="shape__BC1A1120-F6A3-4521-AB7B-A59EA1805EBA" bpmnElement="_BC1A1120-F6A3-4521-AB7B-A59EA1805EBA">
+        <dc:Bounds height="56.0" width="56.0" x="945.0" y="186.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD" bpmnElement="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD">
+        <dc:Bounds height="102.0" width="154.0" x="468.0" y="163.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__8FD7BF6F-6EE7-4860-A032-2B01AB0132D0" bpmnElement="_8FD7BF6F-6EE7-4860-A032-2B01AB0132D0">
+        <dc:Bounds height="56.0" width="56.0" x="143.0" y="186.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD_to_shape__BC1A1120-F6A3-4521-AB7B-A59EA1805EBA" bpmnElement="_08C4ECAF-7D2B-4735-95E0-3FC51CF6631F">
+        <di:waypoint xsi:type="dc:Point" x="545.0" y="214.0"/>
+        <di:waypoint xsi:type="dc:Point" x="973.0" y="214.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__8FD7BF6F-6EE7-4860-A032-2B01AB0132D0_to_shape__F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD" bpmnElement="_AD952FD0-E0A4-4921-93C3-9CB03AFAA777">
+        <di:waypoint xsi:type="dc:Point" x="171.0" y="214.0"/>
+        <di:waypoint xsi:type="dc:Point" x="468.0" y="214.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_NC_vJHr7Ee2h-dILiaaUFQ" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F3D3BE39-E99B-4981-9E1F-A1C4F01D7DCD" id="_NDAWIHr7Ee2h-dILiaaUFQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_8FD7BF6F-6EE7-4860-A032-2B01AB0132D0" id="_NDAWIXr7Ee2h-dILiaaUFQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_NC_vEHr7Ee2h-dILiaaUFQ</bpmn2:source>
+    <bpmn2:target>_NC_vEHr7Ee2h-dILiaaUFQ</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
