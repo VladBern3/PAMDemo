@@ -14,7 +14,7 @@ public class document implements java.io.Serializable {
 	@org.kie.api.definition.type.Label(value = "displayname")
 	private java.lang.String displayname;
 	@org.kie.api.definition.type.Label(value = "id")
-	private java.lang.String id;
+	public java.lang.String id;
 
     public document() {
 	}

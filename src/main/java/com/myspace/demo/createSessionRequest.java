@@ -39,6 +39,11 @@ public class createSessionRequest implements java.io.Serializable {
 	public void setDocuments(java.util.List<com.myspace.demo.document> documents) {
 		this.documents = documents;
 	}
+
+    public java.lang.String getDocumentID(){
+        return this.documents.get(0).id;
+        
+    }
 	
 
 	public java.lang.String getForuser() {
